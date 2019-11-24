@@ -1,0 +1,124 @@
+﻿<div class="container">
+    <div class="alert alert-success" r>
+        <h4 class="alert-heading text-center">About me</h4>
+        <div class="row">
+            <div class="col">
+                <p> I'm a student of the <b>Thuy Loi University</b>. This is my pet project <img style="height: 30px;" src="https://kenh76.vn/icon-facebook/assets/img/emoji/1f62c.png" /></p>
+                <div class="alert">
+                    <img style="height: 30px;" src="http://files.softicons.com/download/social-media-icons/ios-7-style-social-media-icons-by-design-bolts/ico/Facebook.ico" />
+                    <a id="ntt-1" href="#" >Thanh Tùng</a>
+                </div>
+                <div class="alert">
+                    <img style="height: 30px;" src="https://img.icons8.com/cotton/2x/instagram-new.png" />
+                    <a id="ntt-2" href="#" >ntt_thanhtung</a>
+                </div>
+                <div class="alert ">
+                    <img style="height: 30px;" src="https://camo.githubusercontent.com/7710b43d0476b6f6d4b4b2865e35c108f69991f3/68747470733a2f2f7777772e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f6f637469636f6e732f313032342f6d61726b2d6769746875622d3235362e706e67" />
+                    <a id="ntt-3" href="#" >tungnt2k</a>
+                </div>
+                <img src="https://media.giphy.com/media/3oz8xIsloV7zOmt81G/giphy.gif" />
+            </div>
+            <div class="col">
+                <img style="height: 500px;" src="https://scontent-hkg3-2.xx.fbcdn.net/v/t1.0-9/p720x720/72549152_2491785914401800_4426681637887016960_o.jpg?_nc_cat=101&amp;_nc_ohc=0Cxnt12UurAAQlQy3vMMxuXjYdtpE5TZH4hB0geVtCJv89QIWS3MPtAew&amp;_nc_ht=scontent-hkg3-2.xx&amp;oh=f180a9efef133597ec04c124f14a9e2a&amp;oe=5E802C26" class="rounded" />
+            </div>
+        </div>
+        <hr>
+        <p class="mb-0 text-center"><img style="height: 30px;" src="http://icons.iconarchive.com/icons/fasticon/toon-system/128/favorits-icon.png" />Thank you for using my product ! </p>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        $(document).ready(function () {
+            function Redirect(id) {
+                if (id==='ntt-1') {
+                    window.open("https://www.facebook.com/tung.thanh19122k",'_blank');
+                }
+                if (id === 'ntt-2') {
+                    window.open("https://www.instagram.com/ntt_thanhtung/",'_blank');
+                }
+                if (id === 'ntt-3') {
+                    window.open("https://github.com/tungnt2k",'_blank');
+                }
+            }
+            $("#ntt-1").on("click",
+                "",
+                function() {
+                    let timerInterval;
+                    Swal.fire({
+                            title: 'Redirect...',
+                            html: 'You will go to my Facebook in <b></b> milliseconds.',
+                            timer: 4000,
+                            timerProgressBar: true,
+                            onBeforeOpen: () => {
+                                Swal.showLoading();
+                                timerInterval = setInterval(() => {
+                                        Swal.getContent().querySelector('b')
+                                            .textContent = Swal.getTimerLeft();
+                                    },
+                                    100);
+                            },
+                            onClose: () => {
+                                clearInterval(timerInterval);
+                            }
+                        })
+                        .then(() => {
+                            Redirect("ntt-1");
+                        });
+                });
+            $("#ntt-2").on("click",
+                "",
+                function() {
+                    let timerInterval;
+                    Swal.fire({
+                            title: 'Redirect...',
+                            html: 'You will go to my Instagram in <b></b> milliseconds.',
+                            timer: 4000,
+                            timerProgressBar: true,
+                            onBeforeOpen: () => {
+                                Swal.showLoading();
+                                timerInterval = setInterval(() => {
+                                        Swal.getContent().querySelector('b')
+                                            .textContent = Swal.getTimerLeft();
+                                    },
+                                    100);
+                            },
+                            onClose: () => {
+                                clearInterval(timerInterval);
+                            }
+                        })
+                        .then(() => {
+                            Redirect("ntt-2");
+                        });
+                });
+            $("#ntt-3").on("click",
+                "",
+                function() {
+                    let timerInterval;
+                    Swal.fire({
+                            title: 'Redirect...',
+                            html: 'You will go to my Github in <b></b> milliseconds.',
+                            timer: 4000,
+                            timerProgressBar: true,
+                            onBeforeOpen: () => {
+                                Swal.showLoading();
+                                timerInterval = setInterval(() => {
+                                        Swal.getContent().querySelector('b')
+                                            .textContent = Swal.getTimerLeft();
+                                    },
+                                    100);
+                            },
+                            onClose: () => {
+                                clearInterval(timerInterval);
+                            }
+                        })
+                        .then(() => {
+                            Redirect("ntt-3");
+                        });
+                });
+        });
+    </script>
+
+}
+

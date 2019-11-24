@@ -1,0 +1,25 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <div class="row">
+        
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-4">
+                <div class="card" style="width: 30rem;">
+                    <img class="card-img-top" src="@item" />
+                    <div class="card-body">
+                        <a href="@item" download="@item" target="_blank" class="btn btn-outline-success">Download</a>
+                    </div>
+                </div>
+            </div>
+        }
+        
+    </div>
+        
+</div>
+
+

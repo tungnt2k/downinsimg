@@ -1,0 +1,110 @@
+﻿@model InsInfo
+@{
+    Layout = "_Layout";
+}
+<style>
+    body {
+        background-image: url("https://images.wallpaperscraft.com/image/pier_dock_sea_dusk_shore_118549_3840x2400.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+
+    #margin {
+        margin-top: 150px;
+    }
+
+    button {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #text {
+        background-color: #fff;
+        color: #000;
+        border-radius: 10px 10px;
+        padding: 10px 10px;
+        margin-bottom: 190px;
+    }
+</style>
+
+<div class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12" id="margin">
+
+                    <form asp-action="GetLink" method="post" id="ins-info">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <input asp-for="Url" id="url" class="form-control" placeholder="Paste a Instagram link" />
+                        </div>
+                        <div class="form-group">
+                            <select asp-for="SelectId" id="select" class="form-control" asp-items="ViewBag.selectId"></select>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="GetLink" class="btn btn-info btn-block" id="get-link" />
+                        </div>
+                    </form>
+                    <div id="text">
+                        <h5>Note</h5>
+                        <ul>
+                            <li>Paste a <i>user link</i> or <i>image link</i> from <b>Instagram</b></li>
+                            <li>Choose at least one select</li>
+                            <li>--> DOWN</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script>
+        $(document).ready(function () {
+            $("#ins-info").submit(function() {
+                var inslink = $.trim($('#url').val());
+                var select = $.trim($('#select').val());
+                var flag = true;
+                var urlPat = new RegExp("^https:\/\/www.instagram.com\/[p]");
+                if (inslink === '') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Something went wrong!',
+                        footer: '<a>Paste a Instagram link to the text box</a>'
+                    });
+                    flag = false;
+                }
+                else if ((inslink.match(urlPat) === null) && (select === '1')) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: "This isn't a Instagram link !",
+                        footer: '<a>Paste a Instagram link to the text box</a>'
+                    });
+                    flag = false;
+                } else {
+                    Swal.fire({
+                        title: 'Waiting for the result...',
+                        icon: 'success',
+                        width: 400,
+                        padding: '3em',
+                        background: '#fff url("")',
+                        backdrop: `
+                            rgba(255,153,204,0.2)
+                            url("https://media.giphy.com/media/3o6vY0jcHNXmwHXEY0/giphy.gif")
+                            right top
+                            no-repeat
+                             `
+                    });
+                }
+                return flag;
+            });
+
+            
+        });
+    </script>
+}
