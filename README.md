@@ -7,10 +7,6 @@ This is my first pet project <3
 Paste the Instagram link and get image from link
 
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * [.NET CORE 2.1](https://docs.microsoft.com/vi-vn/dotnet/) - Free. Cross-platform. Open source.
